@@ -3,6 +3,8 @@
   import { meta } from "@sveltech/routify";
   meta.title = "Transitions";
 </script>
+<!-- routify:options $index=30 -->
+
 
 <h1 class="c-h1">Transitions</h1>
 <div class="c-container-vertical--small">
@@ -22,12 +24,13 @@
       </a>
       ).
     </p>
-
-    <p>Zooms in when traversing towards the leaves</p>
-    <p>Zooms out when traversing towards the root</p>
-    <p>Slides left if the current index is smaller than the previous</p>
-    <p>Slides right if the current index is bigger than the previous</p>
-    <h5>Usage</h5>
+    <ul>
+      <li>Zooms in when traversing towards the leaves</li>
+      <li>Zooms out when traversing towards the root</li>
+      <li>Slides left if the current index is smaller than the previous</li>
+      <li>Slides right if the current index is bigger than the previous</li>
+    </ul>
+    <h4>Usage</h4>
     <Prism language="svelte">
       {`
         <script>

@@ -3,6 +3,7 @@
   import { meta } from "@sveltech/routify";
   meta.title = "Decorators";
 </script>
+<!-- routify:options $index=30 -->
 
 <h1 class="c-h1">URL parameters</h1>
 <div class="c-content">
@@ -12,9 +13,10 @@
 
   <p>
     A file or folder is parameterized if it is wrapped in brackets.
+  (ie.
     <code>[slug].svelte</code>
     or
-    <code>[slug]/index.svelte</code>
+    <code>[slug]/index.svelte</code>)
   </p>
 
   <br />

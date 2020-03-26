@@ -1,16 +1,10 @@
 <script>
   import { url, isActive } from "@sveltech/routify";
-  import LeftNavLayout from "../../components/LeftNavLayout.svelte";
-  const links = [
-    ["./structure", "File structure"],
-    ["./url-parameters", "URL parameters"],
-    ["./props", "Props"],
-    ["./metadata", "Metadata"],
-    ["./decorators", "Decorators"],
-    ["./transitions", "Transitions"]
-  ];
+  import LeftNavLayout from "@/components/LeftNavLayout.svelte";
 </script>
 
-<LeftNavLayout {links}>
+<!-- routify:options $index=10 -->
+
+<LeftNavLayout >
   <slot />
 </LeftNavLayout>
