@@ -9,6 +9,8 @@
 
 <div class="c-container-horizontal">
   <Header />
-  <slot decorator={Transitions} />
+  <div style="position: relative">
+    <slot decorator={Transitions} />
+  </div>
   <Footer />
 </div>
