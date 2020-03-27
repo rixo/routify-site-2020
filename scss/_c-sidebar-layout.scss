@@ -27,6 +27,7 @@
   }
 
   .c-sidebar-layout__main {
+    position: relative; /* needed to prevent overflow in transitions */
     flex: 1 1 auto;
   }
 }
