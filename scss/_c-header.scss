@@ -5,8 +5,37 @@
    ========================================================================== */
 
 .c-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 1;
+
+  border-bottom: 1px solid #fff;
+  &.minimize {
+    border-bottom: 1px solid #ddd
+  }
+  &.loaded {
+    transition: 0.3 border;
+  }
+  padding-top: 0.4rem
+}
+
+.c-header__content {
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 2.4rem 0;
+  .minimize & {
+    padding: 0rem 0;
+  }
+  .loaded & {
+    transition: 0.3s padding;
+  }
+}
+
+.c-header::before {
+  content: '';
+  position:fixed; top:0; left:0; right: 0;
+  border-top: 0.4rem solid #E938C2;
 }

@@ -20,10 +20,14 @@ html {
 }
 
 body {
-  border-top: 0.4rem solid #E938C2;
   background: #FFF;
   color: $g-text-color;
   font-family: $g-text-font-family;
   line-height: 1.65;
   font-size: 1.6rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin-left: calc(100vw - 100%); /* prevent scrollbar jitter */
 }
