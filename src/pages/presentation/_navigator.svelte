@@ -4,15 +4,29 @@
   import Button from "@/components/Button.svelte";
 
   let next, prev;
-  function findSiblings(node, traversing) {
-    if (!traversing) next = prev = false; //reset
+  function findNextPrev(node, traversing) {
+    //reset
+    if (!traversing) next = prev = false;
+
+    // anchors
+    if (!traversing && node.children.length) {
+      console.log("hello");
+      const currentHash = location.hash;
+      const currentIndex = node.children.map(c => c.path).indexOf(currentHash);
+      next = node.children[currentIndex + 1];
+
+      if (currentIndex === 0) prev = node;
+      else prev = node.children[currentIndex-1]
+    }
+
+    // links
     if (node !== $layout.parent) {
       prev = prev || node.prev;
       next = next || node.next;
-      if (node.parent) findSiblings(node.parent, true);
+      if (node.parent) findNextPrev(node.parent, true);
     }
   }
-  $: findSiblings($page);
+  $: findNextPrev($page);
 
   function handleKeydown({ key }) {
     if (key === "ArrowRight" && next) $goto(next.path);
