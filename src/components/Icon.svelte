@@ -4,6 +4,8 @@
   export let name = "";
   export let size = null;
 
+  console.log(name)
+
   const acceptedSizes = [null, "16", "18", "20", "24"];
 
   $: if (!acceptedSizes.includes(size))

@@ -15,7 +15,7 @@
           ]
         },
         { name: "about.svelte", type: "file", url: "/about" },
-        { name: "index.svelte", type: "file", url: "/" },
+        { name: "index.svelte", type: "file", url: "/" }
       ]
     }
   ];

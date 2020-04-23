@@ -21,7 +21,7 @@
    </a>
 {:else}
     <button
-        type="button"
+        type="c-button"
         class:c-button--primary={theme=="primary"}
         class:c-button--outline={theme=="outline"||!theme}
         on:submit|preventDefault on:click

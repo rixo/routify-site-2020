@@ -4,9 +4,9 @@
     // layouts: icon, label
     export let layout = "text";
     export let icon = null;
-
 </script>
 
+<!-- TODO Shouldn't we just check for an icon to use icon layout? -->
 {#if layout == "icon"}
     <span class="c-button__icon-wrap">
       <Icon name={icon} size="20" />
