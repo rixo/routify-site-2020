@@ -20,7 +20,7 @@
   }
 </style>
 
-<!-- routify:options index=0 -->
+<!-- routify:options index=45 -->
 <h1>Reset layouts and scope</h1>
 
 <table>
