@@ -34,7 +34,6 @@
   }
 </style>
 
-<div class="c-hero__illustration">
   <svg viewBox="0 0 420 238">
     <foreignObject width="100%" height="100%">
       <div class="hero-tree-container">
@@ -42,5 +41,4 @@
       </div>
     </foreignObject>
   </svg>
-</div>
 
