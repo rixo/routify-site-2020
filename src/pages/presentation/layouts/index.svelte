@@ -9,14 +9,7 @@
   ];
 </script>
 
-<style>
-  pre {
-    font-family: monospace;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 64px 0 12px;
-  }
-</style>
+
 
 <!-- routify:options index=1 -->
 <h1>Multi-level layouts</h1>

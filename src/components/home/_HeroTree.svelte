@@ -19,6 +19,11 @@
       ]
     }
   ];
+  export let width = null;
+  export let height = null;
+  $: __width = width || 420;
+  $: _height = height || (__width * 9) / 16;
+  $: _width = __width || (height * 16) / 9;
 </script>
 
 <style>
@@ -30,15 +35,13 @@
 
   .c-hero__illustration {
     padding: 2.778% 3.473%;
-
   }
 </style>
 
-  <svg viewBox="0 0 420 238">
-    <foreignObject width="100%" height="100%">
-      <div class="hero-tree-container">
-        <Walker {children} />
-      </div>
-    </foreignObject>
-  </svg>
-
+<svg viewBox="0 0 {_width} {_height}">
+  <foreignObject width="100%" height="100%">
+    <div class="hero-tree-container">
+      <Walker {children} />
+    </div>
+  </foreignObject>
+</svg>

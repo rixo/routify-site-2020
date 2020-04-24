@@ -2,7 +2,6 @@
   import { BaseTransition } from "@sveltech/routify/decorators";
   import { fly } from "svelte/transition";
   import { writable, get } from "svelte/store";
-  export let rootParent;
 
   let width = writable(window.innerWidth);
   let height = writable(window.innerHeight);

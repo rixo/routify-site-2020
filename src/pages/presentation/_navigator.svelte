@@ -10,7 +10,6 @@
 
     // anchors
     if (!traversing && node.children.length) {
-      console.log("hello");
       const currentHash = location.hash;
       const currentIndex = node.children.map(c => c.path).indexOf(currentHash);
       next = node.children[currentIndex + 1];

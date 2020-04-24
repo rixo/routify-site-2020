@@ -14,9 +14,7 @@
     background: gray;
     color: white;
   }
-  * :global(main) {
-    font-size: 10rem
-  }
+  div {text-align: center}
 </style>
 
 <!-- routify:options index=40 -->

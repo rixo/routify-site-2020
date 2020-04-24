@@ -30,5 +30,8 @@
       </a>
     </div>
   </div>
-  <HeroTree />
+
+  <div class="c-hero__illustration">
+    <HeroTree />
+  </div>
 </div>

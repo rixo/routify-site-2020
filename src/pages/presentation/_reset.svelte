@@ -8,37 +8,55 @@
 </script>
 
 <style>
+  * :global(h1) {
+    font-size: 4em;
+  }
+  * :global(h2) {
+    font-size: 3.2em;
+  }
+  * :global(h3) {
+    font-size: 1.8em;
+  }
+  * :global(h4) {
+    font-size: 1.6em;
+  }
+  * :global(h5) {
+    font-size: 1.3em;
+  }
+  * :global(h6) {
+    font-size: 1em;
+  }
+
   main {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
+    font-size: 18px;
+    /* font-family: "Overpass", sans-serif */
   }
-  .container-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  * :global(pre) {
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 12px;
   }
-  .container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+
+  * :global(.invert) {
+    background: #4C5567;
+    color: white
   }
-  .father {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  * :global(strong) {
+    font-weight: bold
   }
+
 </style>
 
 <main>
   <!-- <div class="container-wrapper"> -->
 
-      <slot {decorator} />
+  <slot {decorator} />
 
   <!-- </div> -->
 </main>

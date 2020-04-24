@@ -1,5 +1,5 @@
 
 <!-- routify:options index=1 -->
-<!-- routify:options title="name" -->
+<!-- routify:options title="A" -->
 
-<h1>INDEX</h1>
+<h1>A NESTED ROUTE</h1>

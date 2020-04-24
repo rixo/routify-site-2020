@@ -1,2 +1,2 @@
-<!-- routify:options index=80 -->
+<!-- routify:options index=60 -->
 <slot></slot>
