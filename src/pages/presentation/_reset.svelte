@@ -64,3 +64,4 @@
 <Navigator {scoped} />
 
 <!-- routify:options transitionRoot=true -->
+<!-- routify:options bundle=true -->
