@@ -49,6 +49,7 @@
 </script>
 
 <style>
+/* Let's center everything for the presentation */
   div.outer {
     display: flex;
     justify-content: center;
@@ -58,10 +59,6 @@
   }
   div.inner {
     position: relative;
-  }
-  :global(.base-transition-decorator) {
-    height: 100%;
-    border: black 1px solid;
   }
 </style>
 

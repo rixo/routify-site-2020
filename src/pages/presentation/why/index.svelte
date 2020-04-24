@@ -12,34 +12,40 @@
   {path:"#c",  title: "No :("},
   {path:"#d",  title: "No :("},
   {path:"#e",  title: "No :("},
+  {path:"#f",  title: "No :("},
 ] -->
-<article class="c-content">
-  <h1>Where is my file?</h1>
+
+  <h3>
+    I need to update
+    <code>/get-started</code>
+  </h3>
   {#if index >= 0}
-    <h1>Where you left it</h1>
+    <h3>Where is my file?</h3>
+  {/if}
+  {#if index >= 1}
+    <h3>Where you left it</h3>
   {/if}
 
-  {#if index > 0}
+  {#if index > 1}
     <h3>
       Dumped in root?
       <code>src/GetStarted.svelte</code>
     </h3>
   {/if}
 
-  {#if index > 1}
+  {#if index > 2}
     <h3>
       Using old name?
       <code>src/pages/Intro.svelte</code>
     </h3>
   {/if}
 
-  {#if index > 2}
+  {#if index > 3}
     <h3>
-      Inlined?
+      Multiple routes in one file?
       <code>src/Guide.svelte</code>
     </h3>
   {/if}
-  {#if index > 3}
+  {#if index > 4}
     <h3>No, it's somewhere else :(</h3>
   {/if}
-</article>

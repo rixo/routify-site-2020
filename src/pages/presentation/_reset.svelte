@@ -8,11 +8,12 @@
 </script>
 
 <style>
+
   * :global(h1) {
     font-size: 4em;
   }
   * :global(h2) {
-    font-size: 3.2em;
+    font-size: 2.6em;
   }
   * :global(h3) {
     font-size: 1.8em;
@@ -44,6 +45,7 @@
     font-size: 18px;
     /* font-family: "Overpass", sans-serif */
   }
+  @media screen and (max-width: 600px) {}
   * :global(pre) {
     font-family: monospace;
     font-size: 18px;
