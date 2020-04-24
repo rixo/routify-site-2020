@@ -5,7 +5,7 @@
 
   let width = writable(window.innerWidth);
   let height = writable(window.innerHeight);
-
+  let duration = 500
   function isInRoot(pages) {
     return pages.find(page => page.parent.meta.transitionRoot);
   }
@@ -19,26 +19,26 @@
     {
       condition: c => isInRoot(c.pages) && c.toHigherIndex,
       transition: fly,
-      inParams: { y: $height, duration: 500 },
-      outParams: { y: -$height, duration: 500 }
+      inParams: { y: $height, duration },
+      outParams: { y: -$height, duration }
     },
     {
       condition: c => isInRoot(c.pages) && c.toLowerIndex,
       transition: fly,
-      inParams: { y: -$height, duration: 500 },
-      outParams: { y: $height, duration: 500 }
+      inParams: { y: -$height, duration },
+      outParams: { y: $height, duration }
     },
     {
       condition: c => c.toHigherIndex,
       transition: fly,
-      inParams: { x: $width, duration: 500 },
-      outParams: { x: -$width, duration: 500 }
+      inParams: { x: $width, duration },
+      outParams: { x: -$width, duration }
     },
     {
       condition: c => c.toLowerIndex,
       transition: fly,
-      inParams: { x: -$width, duration: 500 },
-      outParams: { x: $width, duration: 500 }
+      inParams: { x: -$width, duration },
+      outParams: { x: $width, duration }
     },
     {
       // No matching config. We don't want a transition
@@ -58,6 +58,10 @@
   }
   div.inner {
     position: relative;
+  }
+  :global(.base-transition-decorator) {
+    height: 100%;
+    border: black 1px solid;
   }
 </style>
 

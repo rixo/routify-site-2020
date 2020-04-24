@@ -29,18 +29,22 @@
 </style>
 
 <!-- routify:options index=140 -->
-<h1>Starter Template</h1>
+<div>
+  <h1>Starter Template</h1>
 
-<ul>
-  {#each $layout.children as node}
-    <li>
-      <a href={$url(node.path)} class:active={$isActive(node.path)}>
-        {node.title}
-      </a>
-    </li>
-  {/each}
-</ul>
+  <ul>
+    {#each $layout.children as node}
+      <li>
+        <a href={$url(node.path)} class:active={$isActive(node.path)}>
+          {node.title}
+        </a>
+      </li>
+    {/each}
+  </ul>
 
-<main>
-  <slot />
-</main>
+  <main>
+
+    <slot />
+
+  </main>
+</div>
