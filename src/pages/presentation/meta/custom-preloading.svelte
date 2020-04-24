@@ -11,10 +11,9 @@
   <strong>blog/index.svelte</strong>
   <Code language="javascript">
     {`
-      /** List and sort posts, without loading the components */
         import { routes } from "@sveltech/routify/tmp/routes";
 
-        <!-- iterate all routes -->
+        /** iterate all routes */
         routes.forEach(route => {
           if(route.meta.preloadMe){ //custom metadata
             route.component(); //preload component

@@ -32,7 +32,7 @@
 </style>
 
 <h1>Query strings</h1>
-<Prism language="javascript" source="$url('/blog/:id', {params[index]}" />
+<Prism language="javascript" source="$url('/blog/:id', {params[index]})" />
 <strong>{paths[index]}</strong>
 
 <div class="parse" class:show={index >= 2}>

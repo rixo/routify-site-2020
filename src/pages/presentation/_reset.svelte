@@ -26,6 +26,14 @@
   * :global(h6) {
     font-size: 1em;
   }
+  * :global(table tr td) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  * :global(table tr:last-of-type td) {
+    padding-bottom: 12px;
+  }
+
 
   main {
     position: fixed;
