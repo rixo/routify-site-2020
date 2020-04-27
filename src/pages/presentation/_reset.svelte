@@ -53,6 +53,10 @@
     padding-left: 12px;
   }
 
+  * :global(code){
+    font-size: 1em;
+  }
+
   * :global(.invert) {
     background: #4C5567;
     color: white
@@ -75,3 +79,4 @@
 
 <!-- routify:options transitionRoot=true -->
 <!-- routify:options bundle=true -->
+<!-- routify:options precache=false -->

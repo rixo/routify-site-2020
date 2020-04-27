@@ -7,7 +7,9 @@
   setContext("hashElements", new Map());
 
   self.addEventListener("app-loaded", async () => {
-    routes.forEach(route => {
+    routes
+    .filter(route => !route.path.match(/^\/presentation/))
+    .forEach(route => {
       route.component();
       route.layouts.forEach(layout => layout.component());
     });
