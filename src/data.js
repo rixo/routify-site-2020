@@ -14,9 +14,11 @@ const contributors = [
     "imgpath": "rixo"
   },
   {
-    "name": "@wolfr_",
+    "name": "Wolfr",
     "github": "wolfr",
-    "imgpath": "wolfr"
+    "imgpath": "wolfr",
+    "description": "Helping with the Routify community: docs, community updates, website design and demos.",
+    "twitter": "wolfr_2"
   },
   {
     "name": "@evajacobs",
@@ -31,6 +33,13 @@ const contributors = [
   {
     "name": "@jitesh",
     "github": "jkdoshi",
+    "imgpath": "jitesh",
+  },
+  {
+    "name": "@legionofone",
+    "github": "lpshanley",
+    "twitter": "CitadelOfLukes",
+    "imgpath": "luke"
   }
 ]
 
