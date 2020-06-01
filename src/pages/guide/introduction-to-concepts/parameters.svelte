@@ -2,11 +2,17 @@
   import Prism from "svelte-prism";
   import { meta } from "@sveltech/routify";
   meta.title = "URL parameters";
+  
+  import Note from "@/components/Note.svelte";
+  import Hr from "@/components/Hr.svelte";
+  import RichText from "@/components/RichText.svelte";
+
 </script>
 <!-- routify:options index=30 -->
 
 <h1 class="c-h1">URL parameters</h1>
-<div class="c-content">
+
+<RichText>
   <p>
     Routify can access URL parameters by using parameterized files and folders.
   </p>
@@ -19,8 +25,8 @@
     <code>[slug]/index.svelte</code>)
   </p>
 
-  <br />
-  <h3 class="c-h3">Local parameters</h3>
+  <Hr />
+  <h3>Local parameters</h3>
 
   <p>
     A parameterized file/folder can access its parameter with
@@ -31,8 +37,9 @@
     <code>[slug]/_layout.svelte</code>
   </p>
 
-  <br />
-  <h3 class="c-h3">Global parameters</h3>
+  <Hr />
+
+  <h3>Global parameters</h3>
   <p>
     To access all parameters from anywhere, use the
     <code>$params</code>
@@ -46,12 +53,14 @@
     `}
   </Prism>
 
-  <br />
-  <h3 class="c-h3">Synchronicity</h3>
+  <Hr />
+
+  <h3>Synchronicity</h3>
   <p>
     Local parameters are directly synchronized with the address bar whereas
     global parameters are first propagated through the layout component chain.
     The propagation is to prevent race conditions between parameters and
     component state.
   </p>
-</div>
+
+</RichText>

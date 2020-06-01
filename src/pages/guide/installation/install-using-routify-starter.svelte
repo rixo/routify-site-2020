@@ -7,7 +7,7 @@
 
   import { Tabs, TabsLink, TabsPage } from "@sveltech/bricks";
 
-  let title = "Creating an app"
+  let title = "Install using Routify starter"
   meta.title = title;
   metatags.description = title;
 
@@ -19,7 +19,7 @@
 <RichText>
   <h1 class="c-h1">{title}</h1>
 
-  <p>To create your first Routify app, open an empty folder and type</p>
+  <p>To create your first Routify app, open an empty folder in your shell and type</p>
 
   <Prism>{`npx @sveltech/routify init`}</Prism>
 

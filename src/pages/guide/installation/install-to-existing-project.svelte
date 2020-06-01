@@ -15,29 +15,21 @@
 <h1 class="c-h1">Install to existing project</h1>
 
 <RichText>
-  <p>
-    This is a guide for installing Routify in an existing project. If you wish
-    to create a new project instead. Please refer to our
-    <a href={$url('/guide/introduction/getting-started')}>getting started guide</a>.
-  </p>
+  <p>This is a guide to install Routify in an existing project.</p>
+  <p>For example, you might have started your project using svelte-template and decide you need a router. Perhaps you don't want the features provided by Routify's starter template (code splitting, PWA-ready etc.) and want to keep things simpler.</p>
 </RichText>
 
-<Note>
-  <p>We recommend using the Starter Template for full functionality of Routify. If
-  starting a new project isn't an option, we refer to our
-  <a href="https://github.com/sveltech/routify-starter">Starter Template</a>
-  for implementation of features like SSR, prerendering and deployments.</p>
-</Note>
+<h2 class="c-h2">Integrate into svelte-template</h2>
 
 <RichText>
-  <h2>1. Install module</h2>
+  <h3>1. Install module</h3>
   <p>Run in project folder</p>
 </RichText>
 <Prism>npm i -D @sveltech/routify</Prism>
 
 <Hr />
 
-<h2 class="c-h2">2. Update package.json</h2>
+<h3 class="c-h3">2. Update package.json</h3>
 
 <Prism language="javascript">
   {`
@@ -62,7 +54,7 @@
 
 <Hr />
 
-<h2 class="c-h2">3. Add router to your app</h2>
+<h3 class="c-h3">3. Add router to your app</h3>
 
 <Prism language="html">
   {`
@@ -78,7 +70,7 @@
 
 <Hr />
 
-<h2 class="c-h2">4. Enable SPA</h2>
+<h3 class="c-h3">4. Enable SPA</h3>
 
 <p>
   If you're using history based navigation, make sure that your server

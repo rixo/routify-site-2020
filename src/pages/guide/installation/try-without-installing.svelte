@@ -12,7 +12,7 @@
 <!-- routify:options index=1 -->
 
 
-<h1 class="c-h1">Getting started</h1>
+<h1 class="c-h1">Give Routify a try without installing anything</h1>
 
 <RichText>
   <p>
