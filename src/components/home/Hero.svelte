@@ -4,7 +4,7 @@
 
 <style>
   .specific-btn-toolbar a:first-child {
-    margin-right: 1.2rem;
+    margin-right: 2rem;
   }
 </style>
 
