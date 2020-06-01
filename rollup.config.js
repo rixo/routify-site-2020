@@ -15,6 +15,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import postcss from 'rollup-plugin-postcss'
 import copy from 'rollup-plugin-copy'
 import del from 'del'
 import svg from 'rollup-plugin-svg';
@@ -52,6 +53,9 @@ function createConfig({ output, inlineDynamicImports, plugins = [] }) {
         ], copyOnce: true
       }),
       svg(),
+      postcss({
+        extract: true
+      }),
       alias({ entries: [{ find: '@', replacement: './src' },] }),
       svelte({
         extensions: ['.svelte', '.md', '.svx'],
@@ -106,8 +110,7 @@ const bundledConfig = {
   },
   plugins: [
     !production && serve(),
-    !production && livereload(distDir),
-    sass(production)
+    !production && livereload(distDir)
   ]
 }
 
@@ -128,22 +131,6 @@ if (bundling === 'dynamic')
 if (shouldPrerender) [...configs].pop().plugins.push(prerender())
 export default configs
 
-
-function sass(production) {
-  const sassTask = production ? 'build:sass' : 'watch:sass'
-  let started = false;
-  return {
-    writeBundle() {
-      if (!started) {
-        started = true
-        require('child_process').spawn('npm', ['run', sassTask], {
-          stdio: ['ignore', 'inherit', 'inherit'],
-          shell: true
-        });
-      }
-    }
-  }
-}
 
 function serve() {
   let started = false;

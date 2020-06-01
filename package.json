@@ -15,9 +15,7 @@
     "deploy:now": "cd scripts/now && npm run deploy",
     "deploy:netlify": "cd scripts/netlify && npm run deploy",
     "rollup": "rollup -cw",
-    "routify": "routify -D --extensions svelte,html,svx,md",
-    "build:sass": "node-sass --recursive --output dist/build --source-map true --source-map-contents scss",
-    "watch:sass": "npm run build:sass && npm run build:sass -- --watch"
+    "routify": "routify -D --extensions svelte,html,svx,md"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.0",
@@ -31,12 +29,13 @@
     "del": "^5.1.0",
     "marked": "^0.8.2",
     "mdsvex": "^0.5.1-beta.3",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "prism-svelte": "^0.4.6",
     "rollup": "^2.9.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-livereload": "^1.2.0",
-    "rollup-plugin-scss": "^2.4.0",
+    "rollup-plugin-postcss": "^3.1.1",
     "rollup-plugin-svelte": "^5.2.1",
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-terser": "^5.3.0",

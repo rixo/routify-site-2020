@@ -1,0 +1,84 @@
+/* ==========================================================================
+  s-fonts
+   ========================================================================== */
+
+$font-location: "../fonts/" !default;
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$font-location}Inter-Regular.woff2?v=3.11") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$font-location}Inter-Italic.woff2?v=3.11") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("#{$font-location}Inter-Medium.woff2?v=3.11") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("#{$font-location}Inter-MediumItalic.woff2?v=3.11") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("#{$font-location}Inter-SemiBold.woff2?v=3.11") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("#{$font-location}Inter-SemiBoldItalic.woff2?v=3.11") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$font-location}Inter-Bold.woff2?v=3.11") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$font-location}Inter-BoldItalic.woff2?v=3.11") format("woff2");
+}
+
+/* overpass-regular - latin */
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/overpass-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+}
+/* overpass-700 - latin */
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/overpass-v4-latin-700.woff2') format('woff2')
+}

@@ -30,6 +30,7 @@
 @import "_c-file-tree";
 @import "_c-footer";
 @import "_c-function-doc";
+@import "_c-hr";
 @import "_c-header-mobile";
 @import "_c-help-request";
 @import "_c-hero";
@@ -55,12 +56,3 @@
 
 // External
 @import "_prism";
-
-// Styleguide specific
-@import "c-styleguide-color-swatch"; // might want to separate these styleguide components from the rest
-@import "c-styleguide-color-swatch-list"; // might want to separate these styleguide components from the rest
-@import "c-styleguide-icon-list"; // might want to separate these styleguide components from the rest
-@import "c-styleguide-icon"; // might want to separate these styleguide components from the rest
-@import "c-styleguide-component"; // might want to separate these styleguide components from the rest
-
-

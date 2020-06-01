@@ -1,6 +1,9 @@
 import HMR from '@sveltech/routify/hmr'
 import App from './App.svelte';
 import { global } from 'svelte-prism'
+import './scss/global.scss';
+import './scss/styleguide.scss';
+
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 global.transform = code => Prism.plugins.NormalizeWhitespace.normalize(code)
 
