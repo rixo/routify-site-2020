@@ -1,12 +1,13 @@
 /* ==========================================================================
   Hr
+  ---
+  Horizontal rule
    ========================================================================== */
 
 .c-hr {
-  margin: 2rem 0;
-  margin: 1.6rem 0;
+  margin: 3.2rem 0;
   border: none;
-  padding: 1.6rem 0;
+  padding: 0;
   border-bottom: 0.1rem solid $g-gray-300;
 }
 
