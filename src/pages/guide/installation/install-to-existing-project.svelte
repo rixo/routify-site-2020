@@ -2,22 +2,25 @@
   import { url, meta } from "@sveltech/routify";
   import Prism from "svelte-prism";
   import { Tabs, TabsLink, TabsPage } from "@sveltech/bricks";
+
   import Note from "@/components/Note.svelte";
-  meta.title = "Installation";
+  import Hr from "@/components/Hr.svelte";
+  import RichText from "@/components/RichText.svelte";
+
+  meta.title = "Install to existing project";
 </script>
 
 <!-- routify:options index=20 -->
 
-<div class="c-container-vertical c-container-vertical--small">
-  <h1 class="c-h1">Install to existing project</h1>
-  <div class="c-content">
-    <p>
-      This is a guide for installing Routify in an existing project. If you wish
-      to create a new project instead. Please refer to our
-      <a href={$url('/guide/introduction/getting-started')}>getting started guide</a>.
-    </p>
-  </div>
-</div>
+<h1 class="c-h1">Install to existing project</h1>
+
+<RichText>
+  <p>
+    This is a guide for installing Routify in an existing project. If you wish
+    to create a new project instead. Please refer to our
+    <a href={$url('/guide/introduction/getting-started')}>getting started guide</a>.
+  </p>
+</RichText>
 
 <Note>
   <p>We recommend using the Starter Template for full functionality of Routify. If
@@ -26,109 +29,100 @@
   for implementation of features like SSR, prerendering and deployments.</p>
 </Note>
 
-<div class="c-container-vertical c-container-vertical--small">
-  <div class="c-content">
-    <h2>1. Install module</h2>
-    <p>Run in project folder</p>
-    <Prism>npm i -D @sveltech/routify</Prism>
-  </div>
-</div>
+<RichText>
+  <h2>1. Install module</h2>
+  <p>Run in project folder</p>
+</RichText>
+<Prism>npm i -D @sveltech/routify</Prism>
 
-<div class="c-container-vertical c-container-vertical--small">
-  <div class="c-content">
-    <h2>2. Update package.json</h2>
+<Hr />
+
+<h2 class="c-h2">2. Update package.json</h2>
+
+<Prism language="javascript">
+  {`
+    /** package.json **/
+    ...
+    "scripts": {
+        "dev": "routify -c my-server",
+        "my-server": "rollup -c -w",
+        ...
+    }
+  `}
+</Prism>
+
+<p>
+  <code>routify -c</code>
+  is shorthand for
+  <code>routify --childprocess</code>
+  . If you do not wish to launch your server as a child process, you can use
+  an npm task runner like
+  <code>npm-run-all</code>
+</p>
+
+<Hr />
+
+<h2 class="c-h2">3. Add router to your app</h2>
+
+<Prism language="html">
+  {`
+    <!-- src/App.svelte -->
+    <scrip`}{`t>
+      import { Router } from "@sveltech/routify";
+      import { routes } from "@sveltech/routify/tmp/routes";
+    </script>
+
+    <Router {routes} />
+  `}
+</Prism>
+
+<Hr />
+
+<h2 class="c-h2">4. Enable SPA</h2>
+
+<p>
+  If you're using history based navigation, make sure that your server
+  redirects all requests to your app's path. Usually "/index.html" or just
+  "/".
+</p>
+
+<Tabs>
+  <div class="c-tabs">
+    <TabsLink>Sirv</TabsLink>
+    <TabsLink>Apache</TabsLink>
+    <TabsLink>Other</TabsLink>
   </div>
-  <Prism language="javascript">
-    {`
-      /** package.json **/
-      ...
-      "scripts": {
-          "dev": "routify -c my-server",
-          "my-server": "rollup -c -w",
+  <div class="c-tabs-pages">
+    <TabsPage>
+      <p>For Sirv, enable the single option.</p>
+      <Prism language="javascript">
+        {`
+          /** package.json **/
           ...
-      }
-    `}
-  </Prism>
-  <p>
-    <code>routify -c</code>
-    is shorthand for
-    <code>routify --childprocess</code>
-    . If you do not wish to launch your server as a child process, you can use
-    an npm task runner like
-    <code>npm-run-all</code>
-  </p>
-</div>
-
-<div class="c-container-vertical c-container-vertical--small">
-  <div class="c-content">
-    <h2>3. Add router to your app</h2>
-  </div>
-  <div class="card">
-    <Prism language="html">
-      {`
-        <!-- src/App.svelte -->
-        <scrip`}{`t>
-          import { Router } from "@sveltech/routify";
-          import { routes } from "@sveltech/routify/tmp/routes";
-        </script>
-
-        <Router {routes} />
-      `}
-    </Prism>
-  </div>
-</div>
-
-<div class="c-container-vertical c-container-vertical--small">
-  <div class="c-content">
-    <h2>4. Enable SPA</h2>
-    <p>
-      If you're using history based navigation, make sure that your server
-      redirects all requests to your app's path. Usually "/index.html" or just
-      "/".
-    </p>
-  </div>
-
-  <div class="card">
-    <Tabs>
-      <div class="c-tabs">
-        <TabsLink>Sirv</TabsLink>
-        <TabsLink>Apache</TabsLink>
-        <TabsLink>Other</TabsLink>
-
-      </div>
-      <div class="c-tabs-pages">
-        <TabsPage>
-          <p>For Sirv, enable the single option.</p>
-          <Prism language="javascript">
-            {`
-              /** package.json **/
+          "scripts": {
+              "start": "sirv public --single"
               ...
-              "scripts": {
-                  "start": "sirv public --single"
-                  ...
-              }
-            `}
-          </Prism>
-        </TabsPage>
-        <TabsPage>
-          <Prism>
-            {`
-              RewriteEngine On
-              RewriteBase /
-              RewriteRule ^index\.html$ - [L]
-              RewriteCond %{REQUEST_FILENAME} !-f
-              RewriteCond %{REQUEST_FILENAME} !-d
-              RewriteRule . /index.html [L]
-            `}
-          </Prism>
-        </TabsPage>
-        <TabsPage>
-          <p>
-            For other servers, consult the documentation on how to redirect all
-            requests. This is also known as URL-rewrites.
-          </p>
-        </TabsPage>
-      </div>
-    </Tabs>
+          }
+        `}
+      </Prism>
+    </TabsPage>
+    <TabsPage>
+      <Prism>
+        {`
+          RewriteEngine On
+          RewriteBase /
+          RewriteRule ^index\.html$ - [L]
+          RewriteCond %{REQUEST_FILENAME} !-f
+          RewriteCond %{REQUEST_FILENAME} !-d
+          RewriteRule . /index.html [L]
+        `}
+      </Prism>
+    </TabsPage>
+    <TabsPage>
+      <p>
+        For other servers, consult the documentation on how to redirect all
+        requests. This is also known as URL-rewrites.
+      </p>
+    </TabsPage>
   </div>
-</div>
+</Tabs>
