@@ -1,4 +1,5 @@
 <script>
+
   import { url, meta } from "@sveltech/routify";
   import Prism from "svelte-prism";
   import { Tabs, TabsLink, TabsPage } from "@sveltech/bricks";
@@ -7,16 +8,18 @@
 
   meta.title = "Getting started";
   import Note from "@/components/Note.svelte";
+
 </script>
 
 <!-- routify:options index=1 -->
 
 
-<h1 class="c-h1">Give Routify a try without installing anything</h1>
+<h1 class="c-h1">Try without installing</h1>
 
 <RichText>
   <p>
-    The easiest way to try Routify is to visit our
+    You can give Routify a try without installing anything.
+    The easiest way to do so is to visit our
     <a
       href="https://codesandbox.io/s/github/sveltech/routify-example-tvshow/tree/6-navigation">
       TV Shows app

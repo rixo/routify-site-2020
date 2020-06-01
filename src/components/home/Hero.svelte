@@ -19,8 +19,8 @@
     </p>
     <div class="specific-btn-toolbar">
       <a
-        href="/guide/introduction/getting-started"
-        class="c-button c-button--primary c-button--large">
+        href="/guide/installation/try-without-installing"
+        class="c-button c-button--primary">
         Get started
       </a>
       <a href="https://github.com/sveltech/routify">

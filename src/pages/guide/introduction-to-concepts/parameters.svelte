@@ -33,7 +33,7 @@
     <Prism source="export let slug" />
   </p>
   <p>
-    A Folder's parameter is passed to
+    A folder's parameter is passed to
     <code>[slug]/_layout.svelte</code>
   </p>
 

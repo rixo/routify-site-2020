@@ -1,6 +1,5 @@
 <script>
   import { url, isActive, route, layout, page } from "@sveltech/routify";
-  import LeftNavLayout from "@/components/nav/LeftNavLayout.svelte";
   import Icon from "@/components/Icon.svelte";
   import Button from "@/components/Button.svelte";
   let next, prev;
@@ -18,21 +17,18 @@
 
 <!-- routify:options index=10 -->
 
-<LeftNavLayout>
-  <slot />
+<slot />
 
-  <div class="c-pagination">
-    <!-- @todo we should change these to use the Button component, but I had a problem doing that -Wolfr -->
-    {#if prev}
-      <Button icon="chevron-left" layout="icon" href={$url(prev.path)}>
-        Previous: {prev.title}
-      </Button>
-    {/if}
+<div class="c-pagination">
+  {#if prev}
+    <Button icon="chevron-left" layout="icon" href={$url(prev.path)}>
+      Previous: {prev.title}
+    </Button>
+  {/if}
 
-    {#if next}
-      <Button icon="chevron-right" layout="text-icon" href={$url(next.path)}>
-        Next: {next.title}
-      </Button>
-    {/if}
-  </div>
-</LeftNavLayout>
+  {#if next}
+    <Button icon="chevron-right" layout="text-icon" href={$url(next.path)}>
+      Next: {next.title}
+    </Button>
+  {/if}
+</div>

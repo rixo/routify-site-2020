@@ -30,13 +30,6 @@
 
 <h1 class="c-h1">Overview</h1>
 
-<RichText>
-
-
-</RichText>
-
-<Hr />
-
 <h3 class="c-h3">Starter template structure</h3>
 
 <table>

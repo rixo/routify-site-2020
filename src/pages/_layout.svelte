@@ -62,8 +62,6 @@
   </nav>
 </div>
 
-
-
 <div class="c-main-layout">
   <div class="c-main-layout__sidebar">
      <Sidebar />

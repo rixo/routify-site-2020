@@ -1,6 +1,5 @@
 <script>
   import { url, isActive, route, layout, page } from "@sveltech/routify";
-  import LeftNavLayout from "@/components/nav/LeftNavLayout.svelte";
 
   let next, prev;
   function findSiblings(node, traversing) {
@@ -16,6 +15,4 @@
 
 <!-- routify:options index=false -->
 
-<LeftNavLayout>
-  <slot />
-</LeftNavLayout>
+<slot />

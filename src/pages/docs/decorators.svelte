@@ -1,14 +1,19 @@
 <script>
   import Prism from "svelte-prism";
   import { meta } from "@sveltech/routify";
+
   import Note from "@/components/Note.svelte";
+  import Hr from "@/components/Hr.svelte";
+  import RichText from "@/components/RichText.svelte";
+
   meta.title = "Decorators";
 </script>
 
 <!-- routify:options index=30 -->
 
 <h1 class="c-h1">Decorators</h1>
-<div class="c-content">
+
+<RichText>
   <p>
     Decorators are components which can be individually wrapped around all
     descendant layouts and pages.
@@ -46,4 +51,4 @@
   <Note>
     <p>Decorators can be changed/disabled recursively on any layout or page.</p>
   </Note>
-</div>
+</RichText>

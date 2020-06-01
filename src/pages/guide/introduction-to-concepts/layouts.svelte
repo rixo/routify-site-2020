@@ -1,18 +1,26 @@
 <script>
   import { meta } from "@sveltech/routify";
   import Prism from "svelte-prism";
+
   import Note from "@/components/Note.svelte";
+  import Hr from '@/components/Hr.svelte';
+  import RichText from '@/components/RichText.svelte';
+
   meta.title = "Layouts";
 </script>
 
 <!-- routify:options index=40 -->
 <h1 class="c-h1">Layouts</h1>
-<p>
-  Layouts are components which are wrapped around pages located in their respective
-  folders and subfolders.
-</p>
 
-<p>A typical layout can look like this.</p>
+<RichText>
+  <p>
+    Layouts are components which are wrapped around pages located in their respective
+    folders and subfolders.
+  </p>
+
+  <p>A typical layout can look like this.</p>
+</RichText>
+
 <Prism language="svelte">
   {`
   <!-- _layout.svelte -->
@@ -24,6 +32,7 @@
   <p>Copyright my website 2020</p>
 `}
 </Prism>
+
 <Note>
   <p>
     Layouts are recursive, so whenever a page is displayed all layouts from all
