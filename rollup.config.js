@@ -1,16 +1,4 @@
-/*
-
-  The rollup config for Routify site 2020.
-  If you are looking here, you might be looking how to create a website with Routify.
-  We use a few packages that are different from a base Svelte setup. Some of these include:
-
-    * rollup-plugin-svg: to import SVGs for icons
-    * mdsvex: markdown parsing for the blog
-    * rollup/plugin-alias: to set up an alias for easier component imports
-
-*/
-
-import svelte from 'rollup-plugin-svelte';
+import svelte from 'rollup-plugin-svelte-hot';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
@@ -33,6 +21,12 @@ const shouldPrerender = (typeof process.env.PRERENDER !== 'undefined') ? process
 
 del.sync(distDir + '/**')
 
+const isNollup = process.env.NOLLUP
+const hot = !production && isNollup
+
+// NOTE nollup has no writeBundle hook (it doesn't write to disk)
+const writeHook = isNollup ? 'generateBundle' : 'writeBundle'
+
 function createConfig({ output, inlineDynamicImports, plugins = [] }) {
   const transform = inlineDynamicImports ? bundledTransform : dynamicTransform
 
@@ -52,7 +46,8 @@ function createConfig({ output, inlineDynamicImports, plugins = [] }) {
         ], copyOnce: true
       }),
       svg(),
-      alias({ entries: [{ find: '@', replacement: './src' },] }),
+      // nollup BUG infinite loop alias <-> commonjs
+      // alias({ entries: [{ find: '@', replacement: './src' },] }),
       svelte({
         extensions: ['.svelte', '.md', '.svx'],
         preprocess: mdsvex({
@@ -65,6 +60,7 @@ function createConfig({ output, inlineDynamicImports, plugins = [] }) {
         }),
         // enable run-time checks when not in production
         dev: !production,
+				hot,
         // we'll extract any component CSS out into
         // a separate file — better for performance
         css: css => {
@@ -107,7 +103,7 @@ const bundledConfig = {
   },
   plugins: [
     !production && serve(),
-    !production && livereload(distDir),
+    // !production && livereload(distDir),
     sass(production)
   ]
 }
@@ -123,18 +119,31 @@ const dynamicConfig = {
   ]
 }
 
-const configs = [createConfig(bundledConfig)]
-if (bundling === 'dynamic')
-  configs.push(createConfig(dynamicConfig))
-if (shouldPrerender) [...configs].pop().plugins.push(prerender())
-export default configs
+const nollupConfig = {
+	...dynamicConfig,
+	plugins: bundledConfig.plugins,
+}
 
+const configs = []
+if (isNollup) {
+	configs.push(createConfig(nollupConfig))
+} else {
+	configs.push(createConfig(bundledConfig))
+	if (bundling === 'dynamic') {
+		configs.push(createConfig(dynamicConfig))
+	}
+	if (shouldPrerender) [...configs].pop().plugins.push(prerender())
+}
+
+// console.log(configs[0].plugins) ; process.exit()
+export default configs
 
 function sass(production) {
   const sassTask = production ? 'build:sass' : 'watch:sass'
   let started = false;
   return {
-    writeBundle() {
+    name: 'routify-starter:sass',
+    [writeHook]() {
       if (!started) {
         started = true
         require('child_process').spawn('npm', ['run', sassTask], {
@@ -149,7 +158,8 @@ function sass(production) {
 function serve() {
   let started = false;
   return {
-    writeBundle() {
+    name: 'routify-starter:serve',
+    [writeHook]() {
       if (!started) {
         started = true;
         require('child_process').spawn('npm', ['run', 'serve'], {
@@ -163,6 +173,7 @@ function serve() {
 
 function prerender() {
   return {
+    name: 'routify-starter:prerender',
     writeBundle() {
       if (shouldPrerender) {
         require('child_process').spawn('npm', ['run', 'export'], {
